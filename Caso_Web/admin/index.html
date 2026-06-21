@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — CASO</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--caso-blue-dark);
+  }
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--caso-blue-dark) 0%, var(--caso-blue) 50%, var(--caso-purple) 100%);
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .login-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  .login-card .crest-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--caso-gold);
+    background: white;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .login-card h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: white;
+    margin: 15px 0 25px;
+    font-size: 1.8rem;
+  }
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .login-card label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+  .login-card input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+  .login-card input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .login-card input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--caso-gold);
+    box-shadow: 0 0 0 3px rgba(217, 165, 60, 0.2);
+  }
+  .btn-login {
+    background: var(--caso-gold);
+    color: var(--caso-blue-dark);
+    font-weight: 600;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(217, 165, 60, 0.2);
+  }
+  .btn-login:hover {
+    background: #e2af49;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(217, 165, 60, 0.3);
+  }
+  .btn-login:active {
+    transform: translateY(0);
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .back-link:hover {
+    color: var(--caso-gold);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card text-center">
+    <div style="display:flex; justify-content:center; margin-bottom:10px;">
+      <img src="../images/logo.jpg" alt="CASO Logo" class="crest-img">
+    </div>
+    <h2>Admin Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn-login">Sign In</button>
+      <p id="login-status" class="form-status" style="margin-top: 15px;"></p>
+    </form>
+    
+    <a href="../index.html" class="back-link">&larr; Back to site</a>
+  </div>
+</div>
+
+<script type="module">
+  import { auth } from "../js/firebase-config.js";
+  import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const form = document.getElementById("login-form");
+  const status = document.getElementById("login-status");
+  const submitBtn = form.querySelector(".btn-login");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Signing In...";
+    status.style.display = "none";
+
+    try {
+      await signInWithEmailAndPassword(auth, form.email.value, form.password.value);
+      window.location.href = "dashboard.html";
+    } catch (err) {
+      console.error(err);
+      status.textContent = "Login failed — check your credentials.";
+      status.className = "form-status error";
+      status.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Sign In";
+    }
+  });
+</script>
+</body>
+</html>

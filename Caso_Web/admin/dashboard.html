@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — CASO</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+  body {
+    background: #f4f2ee;
+    color: var(--caso-ink);
+  }
+  .dashboard-header {
+    background: linear-gradient(135deg, var(--caso-blue-dark) 0%, var(--caso-blue) 100%);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--caso-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  .dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .dashboard-nav .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .stat-card {
+    background: white;
+    border: 1px solid var(--caso-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: var(--caso-gold);
+  }
+  .stat-card.blue::before { background: var(--caso-blue); }
+  .stat-card.purple::before { background: var(--caso-purple); }
+  .stat-card.green::before { background: #2e7d32; }
+  
+  .stat-value {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--caso-blue-dark);
+    margin: 0.5rem 0 0.2rem;
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--caso-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .panel {
+    background: white;
+    border: 1px solid var(--caso-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    margin-bottom: 3rem;
+  }
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--caso-border);
+    padding-bottom: 1.2rem;
+  }
+  .panel-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--caso-blue-dark);
+    margin: 0;
+  }
+  .filter-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  @media(min-width: 768px) {
+    .filter-controls { width: auto; }
+  }
+  .search-input {
+    flex-grow: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid var(--caso-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: var(--caso-paper);
+  }
+  .filter-select {
+    padding: 10px 14px;
+    border: 1px solid var(--caso-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: var(--caso-paper);
+    cursor: pointer;
+  }
+  .search-input:focus, .filter-select:focus {
+    outline: 2px solid var(--caso-blue);
+    outline-offset: 1px;
+  }
+  
+  /* Modern Submissions Table */
+  .table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--caso-border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    text-align: left;
+  }
+  th {
+    background: var(--caso-blue-light);
+    color: var(--caso-blue-dark);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 14px 18px;
+    border-bottom: 2px solid var(--caso-border);
+  }
+  td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--caso-border);
+    font-size: 0.92rem;
+    color: var(--caso-ink);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  tr:hover td {
+    background-color: #faf9f6;
+  }
+  
+  /* Status & Category Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+  }
+  .badge.join { background-color: #f3e8ff; color: #6b21a8; }
+  .badge.general { background-color: #e0f2fe; color: #0369a1; }
+  .badge.evangelism { background-color: #fef3c7; color: #92400e; }
+  .badge.institution { background-color: #dcfce7; color: #166534; }
+  .badge.other { background-color: #f1f5f9; color: #475569; }
+  
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--caso-gray);
+  }
+  .empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+    color: var(--caso-border);
+  }
+  .timestamp-col {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: var(--caso-gray);
+  }
+  .message-text {
+    max-width: 320px;
+    overflow-wrap: break-word;
+    white-space: pre-line;
+  }
+</style>
+</head>
+<body>
+
+<header class="dashboard-header">
+  <nav class="dashboard-nav">
+    <span class="nav-brand"><img src="../images/logo.jpg" alt="CASO" class="crest-img"> Admin Portal</span>
+    <button id="logout-btn" class="btn btn-outline" style="padding:8px 18px;font-size:0.85rem;">Log out</button>
+  </nav>
+</header>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    
+    <!-- Stats Row -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <span class="stat-label">Total Inbox</span>
+        <div id="stat-total" class="stat-value">0</div>
+      </div>
+      <div class="stat-card purple">
+        <span class="stat-label">Joining Requests</span>
+        <div id="stat-joins" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Evangelism / Missions</span>
+        <div id="stat-evangelism" class="stat-value">0</div>
+      </div>
+      <div class="stat-card green">
+        <span class="stat-label">Institution Regs</span>
+        <div id="stat-institutions" class="stat-value">0</div>
+      </div>
+    </div>
+
+    <!-- Data Panel -->
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Inbound Submissions</h2>
+        <div class="filter-controls">
+          <input type="text" id="search-input" class="search-input" placeholder="Search by name, institute, details...">
+          <select id="filter-type" class="filter-select">
+            <option value="">All Types</option>
+            <option value="join">Joining CASO</option>
+            <option value="general">General Inquiry</option>
+            <option value="evangelism">Evangelism / Missions</option>
+            <option value="institution">Registering Institution</option>
+            <option value="other">Other</option>
+          </select>
+          <select id="filter-zone" class="filter-select">
+            <option value="">All Zones</option>
+            <option>South Zone</option>
+            <option>Med Science Zone</option>
+            <option>Thika Zone</option>
+            <option>Eastern Zone</option>
+            <option>Machakos Zone</option>
+            <option>Mt. Kenya Zone</option>
+            <option>Nakuru Zone</option>
+            <option>Nyeri Zone</option>
+            <option>Not sure / other</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="loading" class="empty-state">
+        <span class="icon">&#8987;</span>
+        Loading submissions...
+      </div>
+      
+      <div class="table-responsive">
+        <table id="submissions-table" style="display:none;">
+          <thead>
+            <tr>
+              <th style="width: 15%">Date</th>
+              <th style="width: 20%">Name</th>
+              <th style="width: 20%">Institution</th>
+              <th style="width: 15%">Zone</th>
+              <th style="width: 12%">Type</th>
+              <th style="width: 18%">Message</th>
+            </tr>
+          </thead>
+          <tbody id="submissions-body"></tbody>
+        </table>
+      </div>
+      
+      <div id="empty" class="empty-state" style="display:none;">
+        <span class="icon">&#9993;</span>
+        No matching submissions found.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import { auth, db } from "../js/firebase-config.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  let submissionsList = [];
+
+  // Require login
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "index.html";
+    } else {
+      loadSubmissions();
+    }
+  });
+
+  document.getElementById("logout-btn").addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "index.html";
+  });
+
+  // Attach search and filter events
+  document.getElementById("search-input").addEventListener("input", filterAndRender);
+  document.getElementById("filter-type").addEventListener("change", filterAndRender);
+  document.getElementById("filter-zone").addEventListener("change", filterAndRender);
+
+  async function loadSubmissions() {
+    const loading = document.getElementById("loading");
+    try {
+      const q = query(collection(db, "submissions"), orderBy("createdAt", "desc"));
+      const snap = await getDocs(q);
+      
+      submissionsList = [];
+      snap.forEach((doc) => {
+        submissionsList.push(doc.data());
+      });
+
+      calculateAndRenderStats();
+      filterAndRender();
+
+      loading.style.display = "none";
+    } catch (err) {
+      console.error(err);
+      loading.innerHTML = `<span class="icon">&#9888;</span> Could not load submissions. Please check your credentials and Firestore rules.`;
+    }
+  }
+
+  function calculateAndRenderStats() {
+    let total = submissionsList.length;
+    let joins = 0;
+    let evangelisms = 0;
+    let institutions = 0;
+
+    submissionsList.forEach(item => {
+      if (item.type === 'join') joins++;
+      else if (item.type === 'evangelism') evangelisms++;
+      else if (item.type === 'institution') institutions++;
+    });
+
+    document.getElementById("stat-total").textContent = total;
+    document.getElementById("stat-joins").textContent = joins;
+    document.getElementById("stat-evangelism").textContent = evangelisms;
+    document.getElementById("stat-institutions").textContent = institutions;
+  }
+
+  function filterAndRender() {
+    const searchQuery = document.getElementById("search-input").value.toLowerCase().trim();
+    const selectedType = document.getElementById("filter-type").value;
+    const selectedZone = document.getElementById("filter-zone").value;
+
+    const table = document.getElementById("submissions-table");
+    const body = document.getElementById("submissions-body");
+    const empty = document.getElementById("empty");
+
+    // Clear previous rows
+    body.innerHTML = "";
+
+    const filteredList = submissionsList.filter(item => {
+      const matchesSearch = !searchQuery || 
+        (item.name && item.name.toLowerCase().includes(searchQuery)) ||
+        (item.institution && item.institution.toLowerCase().includes(searchQuery)) ||
+        (item.message && item.message.toLowerCase().includes(searchQuery)) ||
+        (item.email && item.email.toLowerCase().includes(searchQuery));
+      
+      const matchesType = !selectedType || item.type === selectedType;
+      const matchesZone = !selectedZone || item.zone === selectedZone;
+
+      return matchesSearch && matchesType && matchesZone;
+    });
+
+    if (filteredList.length === 0) {
+      table.style.display = "none";
+      empty.style.display = "block";
+      return;
+    }
+
+    filteredList.forEach((item) => {
+      const row = document.createElement("tr");
+      const date = item.createdAt ? item.createdAt.toDate().toLocaleDateString(undefined, {
+        year: 'numeric', month: 'short', day: 'numeric'
+      }) : "—";
+      
+      // Determine badge class
+      const badgeClass = item.type ? item.type : "other";
+
+      row.innerHTML = `
+        <td class="timestamp-col">${date}</td>
+        <td>
+          <strong>${escapeHTML(item.name || "—")}</strong><br>
+          <small class="muted"><a href="mailto:${escapeHTML(item.email || '')}">${escapeHTML(item.email || "—")}</a></small>
+        </td>
+        <td>${escapeHTML(item.institution || "—")}</td>
+        <td>${escapeHTML(item.zone || "—")}</td>
+        <td><span class="badge ${badgeClass}">${escapeHTML(item.type || "other")}</span></td>
+        <td><div class="message-text">${escapeHTML(item.message || "—")}</div></td>
+      `;
+      body.appendChild(row);
+    });
+
+    empty.style.display = "none";
+    table.style.display = "table";
+  }
+
+  function escapeHTML(str) {
+    if (!str) return '';
+    return str.replace(/[&<>'"]/g, 
+      tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag)
+    );
+  }
+</script>
+</body>
+</html>
