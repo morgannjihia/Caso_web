@@ -273,10 +273,9 @@ img { max-width: 100%; display: block; }
 /* ===== Zones list ===== */
 .zone-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
-@media (max-width: 700px) { .zone-grid { grid-template-columns: 1fr; } }
 
 .zone-card {
   border: 1px solid var(--caso-border);
