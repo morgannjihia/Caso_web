@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events &amp; Rallies — CASO</title>
+<meta name="description" content="Upcoming and past CASO events — Main Rallies, Zonal Rallies, Evangelism seasons, and Weeks of Prayer across the East Kenya Union Conference.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-bar">
+    <a href="index.html" class="nav-brand"><img src="images/logo.jpg" alt="CASO" class="crest-img"> CASO</a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="zones.html">Zones</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="evangelism.html">Evangelism</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:60px 24px;">
+  <span class="eyebrow">Calendar &amp; Rallies</span>
+  <h1>Events</h1>
+  <p class="verse">Main rallies, zonal gatherings, evangelism seasons, and weeks of prayer — all in one place.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="events-toolbar">
+      <div class="zone-filters" role="group" aria-label="Filter by event type" id="event-filters">
+        <button type="button" class="chip is-active" data-type="all">All events</button>
+        <button type="button" class="chip" data-type="main">Main Rally</button>
+        <button type="button" class="chip" data-type="zonal">Zonal Rally</button>
+        <button type="button" class="chip" data-type="internal-zonal">Internal Zonal</button>
+        <button type="button" class="chip" data-type="institutional">Institutional</button>
+        <button type="button" class="chip" data-type="evangelism">Evangelism Season</button>
+        <button type="button" class="chip" data-type="week-of-prayer">Week of Prayer</button>
+      </div>
+      <div style="margin-top:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:0.88rem;font-weight:600;cursor:pointer;">
+          <input type="checkbox" id="upcoming-only" checked style="width:auto;accent-color:var(--caso-blue)">
+          Show upcoming only
+        </label>
+        <span id="event-count" style="font-size:0.88rem;color:var(--caso-gray);"></span>
+      </div>
+    </div>
+
+    <div id="events-empty" class="zones-empty" hidden>
+      No events match that filter right now &mdash; check back soon or <a href="contact.html">get in touch</a> with the secretariat.
+    </div>
+
+    <div class="events-grid" id="events-grid"></div>
+
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center" style="max-width:680px;">
+    <span class="eyebrow">Evangelism seasons</span>
+    <h2>Two major seasons every year</h2>
+    <p class="muted">CASO runs two consolidated evangelism seasons annually — a first-term campaign in <strong>March&ndash;April</strong> and a third-term campaign in <strong>November&ndash;December</strong> — alongside termly Mission Sabbaths in every member institution. These seasons are anchored by the "Go One Million" watchword.</p>
+    <a href="evangelism.html" class="btn btn-gold" style="margin-top:8px;">Learn about evangelism</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>CASO</h4>
+      <p>College Adventist Students Organization, East Kenya Union Conference.<br>P.O Box 42276&ndash;00100, Nairobi.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <p><a href="about.html">About us</a><br><a href="zones.html">Zones</a><br><a href="leadership.html">Leadership</a><br><a href="events.html">Events</a></p>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <p><a href="mailto:casoadvents@gmail.com">casoadvents@gmail.com</a><br><a href="contact.html">Contact form</a><br><a href="membership.html">Join CASO</a></p>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/groups/1399587170342210/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 CASO &mdash; College Adventist Students Organization. Arise and Shine.</div>
+</footer>
+
+<script type="module" src="js/ui.js"></script>
+<script type="module">
+const EVENTS = [
+  {
+    id: 1,
+    title: "CASO Annual Main Rally 2026",
+    type: "main",
+    date: "2026-08-15",
+    endDate: "2026-08-17",
+    location: "Nairobi, Kenya",
+    description: "The flagship annual gathering bringing together students from all 8 zones for three days of worship, fellowship, training, and evangelism. Theme: 'Arise and Shine — Isaiah 60:1'.",
+    upcoming: true
+  },
+  {
+    id: 2,
+    title: "First-Term Evangelism Season",
+    type: "evangelism",
+    date: "2026-03-14",
+    endDate: "2026-04-05",
+    location: "All member institutions",
+    description: "Consolidated outreach campaigns run simultaneously across every CASO member institution during the first-term evangelism season. Go One Million — Hearts touching hearts.",
+    upcoming: false
+  },
+  {
+    id: 3,
+    title: "South Zone Rally",
+    type: "zonal",
+    date: "2026-07-04",
+    endDate: "2026-07-06",
+    location: "Nairobi South Zone",
+    description: "Zonal rally for all CASO members affiliated with institutions in the South Zone, covering Haile Selassie Avenue through South C.",
+    upcoming: true
+  },
+  {
+    id: 4,
+    title: "Week of Prayer — Term 1",
+    type: "week-of-prayer",
+    date: "2026-02-23",
+    endDate: "2026-03-01",
+    location: "All member institutions",
+    description: "A dedicated week of corporate prayer, devotionals, and Scripture study held in every member institution at the opening of the first term.",
+    upcoming: false
+  },
+  {
+    id: 5,
+    title: "Thika Zone Internal Rally",
+    type: "internal-zonal",
+    date: "2026-09-12",
+    endDate: "2026-09-13",
+    location: "Thika Zone",
+    description: "Internal zonal gathering for Thika Zone institutions — including TTTI, Murang'a University, Zetech, and others — for zone-level fellowship and planning.",
+    upcoming: true
+  },
+  {
+    id: 6,
+    title: "Third-Term Evangelism Season",
+    type: "evangelism",
+    date: "2026-11-07",
+    endDate: "2026-11-29",
+    location: "All member institutions",
+    description: "The second major evangelism season of the year, running through November and into early December across all zones. Culminates with a final Mission Sabbath report.",
+    upcoming: true
+  },
+  {
+    id: 7,
+    title: "Med Science Zone Mission Sabbath",
+    type: "institutional",
+    date: "2026-05-16",
+    location: "KNH / Karen, Nairobi",
+    description: "Termly Mission Sabbath for the Med Science Zone, hosted at KMTC Kenyatta National Hospital. Open to all students in the zone.",
+    upcoming: false
+  },
+  {
+    id: 8,
+    title: "Eastern Zone Rally",
+    type: "zonal",
+    date: "2026-10-03",
+    endDate: "2026-10-04",
+    location: "Kasarani / Gigiri, Nairobi",
+    description: "Annual zonal rally for Eastern Zone members spanning Pioneer University, KCA, KISE, USIU, and more.",
+    upcoming: true
+  },
+  {
+    id: 9,
+    title: "Week of Prayer — Term 2",
+    type: "week-of-prayer",
+    date: "2026-06-01",
+    endDate: "2026-06-07",
+    location: "All member institutions",
+    description: "Mid-year week of prayer and revival meetings in all member institutions, led by zone executives and institution chaplains.",
+    upcoming: false
+  },
+  {
+    id: 10,
+    title: "Mt. Kenya Zone Internal Rally",
+    type: "internal-zonal",
+    date: "2026-07-25",
+    endDate: "2026-07-26",
+    location: "Chuka / Embu",
+    description: "Internal gathering for Mt. Kenya Zone covering Chuka University, Embu University, KMTC Embu, KMTC Meru, and surrounding institutions.",
+    upcoming: true
+  }
+];
+
+const TYPE_LABELS = {
+  "main": "Main Rally",
+  "zonal": "Zonal Rally",
+  "internal-zonal": "Internal Zonal",
+  "institutional": "Institutional",
+  "evangelism": "Evangelism Season",
+  "week-of-prayer": "Week of Prayer"
+};
+
+const TYPE_COLORS = {
+  "main": { bg: "#FEF3C7", color: "#92400E", border: "#FCD34D" },
+  "zonal": { bg: "#EDE9FE", color: "#5B21B6", border: "#C4B5FD" },
+  "internal-zonal": { bg: "#E0F2FE", color: "#075985", border: "#7DD3FC" },
+  "institutional": { bg: "#DCFCE7", color: "#14532D", border: "#86EFAC" },
+  "evangelism": { bg: "#FFF7ED", color: "#9A3412", border: "#FDBA74" },
+  "week-of-prayer": { bg: "#FCE7F3", color: "#831843", border: "#F9A8D4" }
+};
+
+function formatDate(dateStr, endDateStr) {
+  const opts = { day: "numeric", month: "long", year: "numeric" };
+  const start = new Date(dateStr + "T00:00:00");
+  if (!endDateStr || endDateStr === dateStr) {
+    return start.toLocaleDateString("en-KE", opts);
+  }
+  const end = new Date(endDateStr + "T00:00:00");
+  if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
+    return `${start.getDate()}–${end.toLocaleDateString("en-KE", opts)}`;
+  }
+  return `${start.toLocaleDateString("en-KE", { day: "numeric", month: "short" })} – ${end.toLocaleDateString("en-KE", opts)}`;
+}
+
+function isUpcoming(event) {
+  const now = new Date();
+  const eventEnd = new Date((event.endDate || event.date) + "T23:59:59");
+  return eventEnd >= now;
+}
+
+function renderEvents(filter, upcomingOnly) {
+  const grid = document.getElementById("events-grid");
+  const emptyEl = document.getElementById("events-empty");
+  const countEl = document.getElementById("event-count");
+
+  let filtered = EVENTS.filter(e => filter === "all" || e.type === filter);
+  if (upcomingOnly) filtered = filtered.filter(e => isUpcoming(e));
+  filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  countEl.textContent = `${filtered.length} event${filtered.length !== 1 ? "s" : ""}`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = "";
+    emptyEl.hidden = false;
+    return;
+  }
+
+  emptyEl.hidden = true;
+  grid.innerHTML = filtered.map(ev => {
+    const colors = TYPE_COLORS[ev.type] || TYPE_COLORS["main"];
+    const upcoming = isUpcoming(ev);
+    return `
+    <div class="event-card ${upcoming ? "event-upcoming" : "event-past"}">
+      <div class="event-card-top">
+        <span class="event-badge" style="background:${colors.bg};color:${colors.color};border-color:${colors.border}">${TYPE_LABELS[ev.type]}</span>
+        ${upcoming ? '<span class="event-upcoming-dot">Upcoming</span>' : '<span class="event-past-label">Past</span>'}
+      </div>
+      <h3 class="event-title">${ev.title}</h3>
+      <div class="event-meta">
+        <span class="event-date">📅 ${formatDate(ev.date, ev.endDate)}</span>
+        <span class="event-location">📍 ${ev.location}</span>
+      </div>
+      <p class="event-desc">${ev.description}</p>
+    </div>`;
+  }).join("");
+}
+
+let activeType = "all";
+let upcomingOnly = true;
+
+document.getElementById("event-filters").querySelectorAll(".chip").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#event-filters .chip").forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    activeType = btn.dataset.type;
+    renderEvents(activeType, upcomingOnly);
+  });
+});
+
+document.getElementById("upcoming-only").addEventListener("change", function () {
+  upcomingOnly = this.checked;
+  renderEvents(activeType, upcomingOnly);
+});
+
+renderEvents(activeType, upcomingOnly);
+</script>
+</body>
+</html>

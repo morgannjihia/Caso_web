@@ -1,0 +1,296 @@
+/* ============================================
+   pages.css — styles for Events, Resources,
+   Membership pages
+   ============================================ */
+
+/* ── Nav: tighter for more links ── */
+.nav-links { gap: 16px; }
+.nav-links a { font-size: 0.88rem; }
+
+/* ── Events ── */
+.events-toolbar {
+  background: #fff;
+  border: 1px solid var(--caso-border);
+  border-radius: var(--radius);
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--caso-blue), var(--caso-gold), var(--caso-purple)) 1;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border: 1px solid var(--caso-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  animation: event-fade-in 0.35s ease both;
+}
+@keyframes event-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(14,51,96,0.1);
+}
+.event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.event-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid;
+  letter-spacing: 0.03em;
+}
+.event-upcoming-dot {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #16A34A;
+  background: #DCFCE7;
+  border: 1px solid #86EFAC;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.event-past-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--caso-gray);
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.event-card.event-past { opacity: 0.72; }
+.event-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--caso-blue-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--caso-gray);
+}
+.event-desc {
+  font-size: 0.9rem;
+  color: var(--caso-gray);
+  margin: 0;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ── Resources ── */
+.resource-feature-card {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #EEF4FF 0%, #F9F6FF 100%);
+  border: 1px solid #C7D7F5;
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.resource-feature-icon {
+  font-size: 2.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.resource-feature-body h3 {
+  color: var(--caso-blue-dark);
+  margin-bottom: 8px;
+}
+.btn-outline-dark {
+  background: transparent;
+  border: 2px solid var(--caso-border);
+  color: var(--caso-blue-dark);
+}
+.btn-outline-dark:hover {
+  border-color: var(--caso-blue);
+  background: var(--caso-blue-light);
+}
+
+/* ── Beliefs grid ── */
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.belief-group {
+  background: #fff;
+  border: 1px solid var(--caso-border);
+  border-top: 3px solid var(--group-color, var(--caso-blue));
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.belief-group-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--group-color, var(--caso-blue));
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+}
+.belief-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.belief-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--caso-ink);
+  line-height: 1.4;
+}
+.belief-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--caso-blue-light);
+  color: var(--caso-blue-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Link cards ── */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--caso-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--caso-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.link-card:hover {
+  border-color: var(--caso-gold);
+  box-shadow: 0 6px 18px rgba(14,51,96,0.08);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.link-card-icon { font-size: 1.6rem; flex-shrink: 0; }
+.link-card div { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.link-card strong { font-size: 0.95rem; color: var(--caso-blue-dark); }
+.link-card span { font-size: 0.82rem; color: var(--caso-gray); }
+.link-card-arrow { color: var(--caso-gold); font-size: 1.2rem; font-weight: 700; flex-shrink: 0; }
+
+/* ── Membership ── */
+.membership-badge {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+.membership-active   { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
+.membership-associate{ background: #EDE9FE; color: #4C1D95; border: 1px solid #C4B5FD; }
+.membership-honorary { background: #FEF3C7; color: #78350F; border: 1px solid #FCD34D; }
+
+.statement-box {
+  background: linear-gradient(135deg, #EEF4FF 0%, #F9F0FF 100%);
+  border: 1px solid #C7D7F5;
+  border-left: 4px solid var(--caso-purple);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.statement-box h4 {
+  color: var(--caso-purple);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+  font-family: var(--font-body);
+}
+.statement-box p {
+  margin: 0;
+  color: var(--caso-ink);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ── Fees table ── */
+.fees-table {
+  background: #fff;
+  border: 1px solid var(--caso-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.fees-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--caso-border);
+  align-items: center;
+  font-size: 0.92rem;
+}
+.fees-row:last-child { border-bottom: none; }
+.fees-header {
+  background: var(--caso-blue-dark);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.fees-row:nth-child(even):not(.fees-header) { background: #FAFAF8; }
+.fees-amount { font-weight: 700; color: var(--caso-blue-dark); }
+.fees-note {
+  grid-column: 1 / -1;
+  font-style: italic;
+  color: var(--caso-gray);
+  font-size: 0.85rem;
+  background: var(--caso-gold-light);
+}
+
+@media (max-width: 600px) {
+  .fees-row { grid-template-columns: 1fr; gap: 4px; }
+  .resource-feature-card { flex-direction: column; }
+  .events-grid { grid-template-columns: 1fr; }
+  .beliefs-grid { grid-template-columns: 1fr; }
+}

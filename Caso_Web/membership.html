@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership — CASO</title>
+<meta name="description" content="Join CASO — learn about membership qualifications, categories, subscription fees, and submit your membership application.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-bar">
+    <a href="index.html" class="nav-brand"><img src="images/logo.jpg" alt="CASO" class="crest-img"> CASO</a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="zones.html">Zones</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="evangelism.html">Evangelism</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:60px 24px;">
+  <span class="eyebrow">Join the movement</span>
+  <h1>Membership</h1>
+  <p class="verse">CASO membership is open to every Adventist student in tertiary education within the East Kenya Union Conference — come as you are, grow together.</p>
+</section>
+
+<!-- Who qualifies -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Qualifications</span>
+      <h2>Who can join CASO?</h2>
+      <p class="muted">Membership is open and inclusive. The only requirement is being a student in a tertiary institution within the EKUC catchment area.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon-mark" style="font-size:1.4rem;">🎓</div>
+        <h3>Active Member</h3>
+        <p class="muted">Any student enrolled in a tertiary institution, private college, or university within the East Kenya Union Conference who is a baptised Seventh-day Adventist.</p>
+        <span class="membership-badge membership-active">Full rights &amp; voting</span>
+      </div>
+      <div class="card">
+        <div class="icon-mark" style="font-size:1.4rem;">🤝</div>
+        <h3>Associate Member</h3>
+        <p class="muted">Any student in a CASO-covered institution who is not yet baptised but is interested in the Adventist faith and wishes to participate in CASO activities and mission.</p>
+        <span class="membership-badge membership-associate">Participate &amp; serve</span>
+      </div>
+      <div class="card">
+        <div class="icon-mark" style="font-size:1.4rem;">⭐</div>
+        <h3>Honorary Member</h3>
+        <p class="muted">Conferred by the CASO central executive on individuals — including non-students — who have rendered outstanding service to the organization and its mission.</p>
+        <span class="membership-badge membership-honorary">By executive appointment</span>
+      </div>
+    </div>
+
+    <!-- Non-discrimination statement -->
+    <div class="statement-box" style="margin-top:40px;">
+      <h4>Non-Discrimination Statement</h4>
+      <p>CASO does not discriminate on the basis of gender, ethnicity, nationality, economic background, or physical ability. Every student who meets the membership criteria is equally welcome in the fellowship, ministry, and governance of the organization. Our unity is founded on one faith, one baptism, and one Lord — Ephesians 4:5.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Subscription fees -->
+<section class="section section-alt">
+  <div class="container" style="max-width:800px;">
+    <div class="section-head">
+      <span class="eyebrow">Subscription</span>
+      <h2>Membership fees</h2>
+      <p class="muted">Subscription fees support CASO's rallies, evangelism campaigns, and administrative costs. Fees are set by the CASO central executive and reviewed annually.</p>
+    </div>
+
+    <div class="fees-table">
+      <div class="fees-row fees-header">
+        <span>Membership category</span>
+        <span>Frequency</span>
+        <span>Amount (KES)</span>
+      </div>
+      <div class="fees-row">
+        <span><strong>Active Member</strong></span>
+        <span>Per term</span>
+        <span class="fees-amount">Contact secretariat</span>
+      </div>
+      <div class="fees-row">
+        <span><strong>Associate Member</strong></span>
+        <span>Per term</span>
+        <span class="fees-amount">Contact secretariat</span>
+      </div>
+      <div class="fees-row">
+        <span><strong>Zone Levy</strong><br><small class="muted">Contributes to zonal rally costs</small></span>
+        <span>Per rally</span>
+        <span class="fees-amount">Contact secretariat</span>
+      </div>
+      <div class="fees-row fees-note">
+        <span colspan="3">Fees may be waived or adjusted for students experiencing financial hardship. Contact your zone executive or the CASO secretariat.</span>
+      </div>
+    </div>
+
+    <p class="muted text-center" style="margin-top:20px;font-size:0.88rem;">
+      Current fee amounts are confirmed at each annual main rally and communicated through zone executives and institution chaplains.
+      <a href="contact.html">Contact the secretariat</a> for the latest figures.
+    </p>
+  </div>
+</section>
+
+<!-- Application form -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Apply now</span>
+      <h2>Submit your membership application</h2>
+      <p class="muted">Fill in the form below and your zone executive will follow up. Fields marked * are required.</p>
+    </div>
+
+    <div class="form-card" style="max-width:620px;">
+      <form id="membership-form" novalidate>
+        <label for="m-name">Full name *</label>
+        <input type="text" id="m-name" name="name" required placeholder="Your full name" autocomplete="name">
+
+        <label for="m-email">Email address *</label>
+        <input type="email" id="m-email" name="email" required placeholder="you@example.com" autocomplete="email">
+
+        <label for="m-phone">Phone number</label>
+        <input type="tel" id="m-phone" name="phone" placeholder="+254 7xx xxx xxx" autocomplete="tel">
+
+        <label for="m-institution">Institution *</label>
+        <input type="text" id="m-institution" name="institution" required placeholder="Name of your college or university">
+
+        <label for="m-zone">Zone *</label>
+        <select id="m-zone" name="zone" required>
+          <option value="">Select your zone&hellip;</option>
+          <option value="south">South Zone</option>
+          <option value="med-science">Med Science Zone</option>
+          <option value="thika">Thika Zone</option>
+          <option value="eastern">Eastern Zone</option>
+          <option value="machakos">Machakos Zone</option>
+          <option value="mt-kenya">Mt. Kenya Zone</option>
+          <option value="nakuru">Nakuru Zone</option>
+          <option value="nyeri">Nyeri Zone</option>
+        </select>
+
+        <label for="m-category">Membership category *</label>
+        <select id="m-category" name="membershipType" required>
+          <option value="">Select category&hellip;</option>
+          <option value="active">Active Member (baptised SDA student)</option>
+          <option value="associate">Associate Member (interested in Adventism)</option>
+        </select>
+
+        <label for="m-year">Year of study</label>
+        <select id="m-year" name="yearOfStudy">
+          <option value="">Select year&hellip;</option>
+          <option value="1">Year 1</option>
+          <option value="2">Year 2</option>
+          <option value="3">Year 3</option>
+          <option value="4">Year 4</option>
+          <option value="5+">Year 5+</option>
+        </select>
+
+        <label for="m-message">Anything you'd like us to know?</label>
+        <textarea id="m-message" name="message" rows="3" placeholder="Optional — share your background, questions, or how you heard about CASO."></textarea>
+
+        <button type="submit" class="btn btn-gold" style="margin-top:20px;width:100%;">Submit application</button>
+        <p id="membership-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>CASO</h4>
+      <p>College Adventist Students Organization, East Kenya Union Conference.<br>P.O Box 42276&ndash;00100, Nairobi.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <p><a href="about.html">About us</a><br><a href="zones.html">Zones</a><br><a href="leadership.html">Leadership</a><br><a href="events.html">Events</a></p>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <p><a href="mailto:casoadvents@gmail.com">casoadvents@gmail.com</a><br><a href="contact.html">Contact form</a><br><a href="membership.html">Join CASO</a></p>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/groups/1399587170342210/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 CASO &mdash; College Adventist Students Organization. Arise and Shine.</div>
+</footer>
+
+<script type="module" src="js/ui.js"></script>
+<script type="module">
+import { db } from "./js/firebase-config.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const form = document.getElementById("membership-form");
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const statusEl = document.getElementById("membership-status");
+    const submitBtn = form.querySelector("button[type='submit']");
+
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      institution: form.institution.value.trim(),
+      zone: form.zone.value,
+      membershipType: form.membershipType.value,
+      yearOfStudy: form.yearOfStudy.value,
+      message: form.message.value.trim(),
+      createdAt: serverTimestamp(),
+      status: "pending",
+      type: "membership-application"
+    };
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting…";
+      await addDoc(collection(db, "submissions"), data);
+      statusEl.textContent = "Application received — thank you! Your zone executive will be in touch soon. Arise and Shine.";
+      statusEl.className = "form-status success";
+      form.reset();
+    } catch (err) {
+      console.error("Membership submission error:", err);
+      statusEl.textContent = "Something went wrong. Please try again or email casoadvents@gmail.com directly.";
+      statusEl.className = "form-status error";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit application";
+    }
+  });
+}
+</script>
+</body>
+</html>
