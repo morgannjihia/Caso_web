@@ -93,16 +93,33 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUrl();
   });
 
-  expandAllBtn?.addEventListener("click", () => {
-    cards.forEach((card) => {
-      if (!card.hidden) card.open = true;
+  // ── Accordion: only one zone open at a time ──
+  let accordionLocked = false;
+  cards.forEach((card) => {
+    card.addEventListener("toggle", () => {
+      if (accordionLocked) return;
+      if (card.open) {
+        cards.forEach((other) => {
+          if (other !== card && other.open) other.open = false;
+        });
+      }
     });
   });
 
+  expandAllBtn?.addEventListener("click", () => {
+    accordionLocked = true;
+    cards.forEach((card) => {
+      if (!card.hidden) card.open = true;
+    });
+    accordionLocked = false;
+  });
+
   collapseAllBtn?.addEventListener("click", () => {
+    accordionLocked = true;
     cards.forEach((card) => {
       card.open = false;
     });
+    accordionLocked = false;
   });
 
   const params = new URLSearchParams(location.search);

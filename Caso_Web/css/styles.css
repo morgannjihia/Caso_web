@@ -751,3 +751,176 @@ textarea { resize: vertical; min-height: 110px; }
   border-radius: 20px;
   margin-bottom: 6px;
 }
+
+/* ============================================
+   ENERGETIC COLOR UPGRADES
+   ============================================ */
+
+/* ── Hero: vivid layered gradient ── */
+.hero {
+  background: linear-gradient(135deg,
+    #0A2447 0%,
+    #1B4F8C 40%,
+    #2563B0 70%,
+    #1E3A7A 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 20%, rgba(217,165,60,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(91,58,126,0.22) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero > * { position: relative; }
+
+/* ── Eyebrow: gradient text ── */
+.eyebrow,
+.section-head .eyebrow {
+  background: linear-gradient(90deg, var(--caso-gold) 0%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .eyebrow {
+  background: linear-gradient(90deg, #FFD77A 0%, #F0ABFC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card: gradient top accent on hover ── */
+.card {
+  border-top: 3px solid transparent;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(90deg, var(--caso-blue), var(--caso-gold));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: var(--radius);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card:hover {
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(90deg, var(--caso-gold), var(--caso-purple));
+  box-shadow: 0 18px 40px rgba(14, 51, 96, 0.15);
+  transform: translateY(-6px);
+}
+
+/* ── Card icon marks: vivid per position ── */
+.card:nth-child(1) .icon-mark { background: #FEF3C7; color: #D97706; }
+.card:nth-child(2) .icon-mark { background: #EDE9FE; color: #7C3AED; }
+.card:nth-child(3) .icon-mark { background: #DCFCE7; color: #16A34A; }
+.card:nth-child(4) .icon-mark { background: #FFE4E6; color: #E11D48; }
+.card:nth-child(5) .icon-mark { background: #E0F2FE; color: #0284C7; }
+.card:nth-child(6) .icon-mark { background: #FFF7ED; color: #EA580C; }
+
+/* ── Buttons: more vivid ── */
+.btn-gold {
+  background: linear-gradient(135deg, #E8B430 0%, #D4860A 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(217,165,60,0.35);
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F0C040 0%, #E09010 100%);
+  box-shadow: 0 6px 20px rgba(217,165,60,0.5);
+  opacity: 1;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--caso-blue) 0%, var(--caso-blue-dark) 100%);
+  box-shadow: 0 4px 14px rgba(27,79,140,0.3);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(27,79,140,0.45);
+}
+.btn-outline {
+  border-color: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #FFD77A;
+  color: #FFD77A;
+}
+
+/* ── Active chip: gradient ── */
+.chip.is-active {
+  background: linear-gradient(135deg, var(--caso-blue) 0%, var(--caso-purple) 100%);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(91,58,126,0.3);
+}
+
+/* ── Section alt: subtle tinted background ── */
+.section-alt {
+  background: linear-gradient(180deg, #fff 0%, #F4F0FF 50%, #fff 100%);
+}
+
+/* ── Zone card: per-zone vivid accent colours ── */
+.zone-card { border-left: 4px solid var(--zone-accent, var(--caso-blue)); }
+.zone-card[data-zone="south"]      { --zone-accent: #0EA5E9; }
+.zone-card[data-zone="med-science"]{ --zone-accent: #F43F5E; }
+.zone-card[data-zone="thika"]      { --zone-accent: #F97316; }
+.zone-card[data-zone="eastern"]    { --zone-accent: #8B5CF6; }
+.zone-card[data-zone="machakos"]   { --zone-accent: #10B981; }
+.zone-card[data-zone="mt-kenya"]   { --zone-accent: #06B6D4; }
+.zone-card[data-zone="nakuru"]     { --zone-accent: #EC4899; }
+.zone-card[data-zone="nyeri"]      { --zone-accent: #F59E0B; }
+
+.zone-card summary {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.zone-card[open] summary {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--zone-accent, var(--caso-blue)) 12%, transparent), transparent);
+  color: var(--zone-accent, var(--caso-blue-dark));
+}
+.zone-card summary::after { color: var(--zone-accent, var(--caso-gold)); }
+
+/* Zone card content slide-in animation */
+.zone-card[open] ul {
+  animation: zone-slide-down 0.28s ease both;
+}
+@keyframes zone-slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Nav: gold glow on active link ── */
+.nav-links a.nav-active {
+  color: var(--caso-gold);
+  text-shadow: 0 0 12px rgba(217,165,60,0.5);
+}
+
+/* ── Stats numbers: gradient text ── */
+.home-stats strong {
+  background: linear-gradient(135deg, var(--caso-blue-dark), var(--caso-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Tag: more vivid ── */
+.tag {
+  background: linear-gradient(90deg, #FEF3C7, #EDE9FE);
+  color: var(--caso-purple);
+  font-weight: 700;
+}
+
+/* ── Footer: deeper gradient ── */
+.site-footer {
+  background: linear-gradient(160deg, #05152E 0%, var(--caso-blue-dark) 50%, #1A0A2E 100%);
+}
+
+/* ── Form inputs: focus glow ── */
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--caso-blue);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 4px rgba(27,79,140,0.12);
+}
+
+/* ── Zone toolbar: subtle gradient border ── */
+.zones-toolbar {
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--caso-blue), var(--caso-gold), var(--caso-purple)) 1;
+}
